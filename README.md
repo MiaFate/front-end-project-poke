@@ -14,7 +14,7 @@
 | Team         |   <ul><li> ✅ Pantalla y cards de equipo pokemon </li> <li> ⬜️ Funcionalidades (en progreso) </li></ul> | [iara baya](https://github.com/iarabaya)
 | Contraseña   |   ⬜️ Pantalla y funcionalidad de reinicio de contraseña | 
 | Switch       |   ⬜️ Dark / Light Mode  | 
-| Register     |  ⬜️ Pantalla y estilos  | -
+| Register     |  ✅ Pantalla y estilos  | [nathan](https://github.com/qjonathan999)
 | 404          |  ⬜️ Pantalla y ruta | -
 | Estadisticas |  ⬜️ Tabla de estadisticas pokemon | -
 

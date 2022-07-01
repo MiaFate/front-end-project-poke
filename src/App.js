@@ -5,6 +5,7 @@ import Layout from './containers/Layout/Layout';
 
 //pages
 import AuthPage from './pages/AuthPage/AuthPage';
+import SignUpPage from './pages/SignUpPage/SignUpPage'
 import HomePage from './pages/HomePage/HomePage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import Signup from './components/signup/Signup';
@@ -19,7 +20,7 @@ function App() {
 			<BrowserRouter>
 					<Routes>
 						<Route path='/login' element={<AuthPage/>}/>
-						<Route path='/signup' element={<Signup/>}/>
+						<Route path='/signup' element={<SignUpPage/>}/>
 
 						<Route element={<Layout/>}>
 								<Route index element={<HomePage/>}/>
