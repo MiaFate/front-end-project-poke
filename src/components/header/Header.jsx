@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from 'react-router-dom'
+import ToggleThemeButton from "../toggleTheme/toggleTheme";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div>
-      <nav className="bg-gray-900">
+      <nav className="bg-blue-500 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -18,27 +19,35 @@ const Header = () => {
                   alt="pokeball"
                 />
               </div>
+							
               <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
-                  <Link to="/" className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
+                <div className="ml-10 flex items-center space-x-4">
+                  <Link to="/" className="text-white hover:bg-blue-600 hover:dark:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
                     PokéDex
                   </Link>
 
-									<Link to='team' className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+									<Link to='team' className="text-white dark:text-gray-300 hover:bg-blue-600 hover:dark:bg-gray-700 hover:dark:text-white px-3 py-2 rounded-md text-sm font-medium">
 										My Team
 									</Link>
 
-                  <Link to="/profile" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                  <Link to="/profile" className="text-white dark:text-gray-300 hover:bg-blue-600 hover:dark:bg-gray-700 hover:dark:text-white px-3 py-2 rounded-md text-sm font-medium">
                     My Profile
                   </Link>
+
+									<ToggleThemeButton/>
                 </div>
               </div>
             </div>
+
+						<div className="-mr-2 flex md:hidden">
+							<ToggleThemeButton/>	
+						</div>
+
             <div className="-mr-2 flex md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                className="bg-blue-600 dark:bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-white dark:text-gray-400 hover:text-white hover:bg-blue-800 hover:dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
@@ -79,12 +88,12 @@ const Header = () => {
               </button>
             </div>
 
-            <div className="flex items-center hidden md:block">
-              <Link to="/login" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+            <div className="items-center hidden md:block">
+              <Link to="/login" className="text-white dark:text-gray-300 hover:bg-blue-600 hover:dark:bg-gray-700 hover:dark:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Login
               </Link>
             </div>
-          </div>
+          </div>			
         </div>
 
         <Transition
