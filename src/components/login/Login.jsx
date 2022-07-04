@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
   const [loginData, setLoginData] = useState({ username: '', password:'' });
@@ -14,20 +15,7 @@ const Login = () => {
     e.preventDefault();
     console.log(loginData)
     
-    // const options = {
-    //     method: "POST",
-    //     headers: {
-    //     "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify(jsonData)
-    // };
-
-    // fetch('https://jsonplaceholder.typicode.com/login', options)
-    //     .then(response => response.json())
-    //     .then(json => {
-    //         console.log(json)
-    //     });     
-}
+	}
 
 
   return (
@@ -51,13 +39,17 @@ const Login = () => {
               value={loginData.password}
               onChange={onInputChange}/>
           </div>
-          <div className='flex justify-end'>
-            <a href="/" className='text-sm text-gray-900 hover:text-purple-700 hover:underline mb-6'>Forgot your password?</a>
-          </div>
 
           <button type="submit" className='bg-gray-900 rounded hover:bg-gray-700 text-white font-bold py-2 shadow-lg hover:shadow-xl transition duration-200 '>
             Login
           </button>
+
+          <div className='flex justify-around my-2'>
+						<p>
+							Forgot your password?
+						</p>					
+            <Link to="/resetpass" className='text-gray-900 hover:text-purple-700 hover:underline mb-6'>Reset it here</Link>					
+          </div>
         </form>
   )
 }

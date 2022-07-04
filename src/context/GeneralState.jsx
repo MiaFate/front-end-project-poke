@@ -4,26 +4,21 @@ import axios from "axios";
 import GeneralReducer from "./GeneralReducer";
 
 const GeneralState = ({children}) => {
-		const getTheme = async () => {
+		// const getTheme = async () => {
 
-			if (localStorage.theme === 'dark' ||  (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-				
-				document.documentElement.classList.add('dark')
-				return 'dark'
-
-			}else{
-
-				document.documentElement.classList.remove('dark')
-				return 'light' // light theme por defecto
-
-			}			
-		}
+		// 	if ( window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		// 		document.documentElement.classList.add('dark')
+		// 		return 'dark'
+		// 	}
+		// 		document.documentElement.classList.remove('dark')
+		// 		return 'light' 
+		// }
 
     const initialState = {
 				pokemons: [],
 				selectedPokemon: null,
         team: [],
-				theme: getTheme()
+				theme: "light" // light theme por defecto
     }
 
     const [state, dispatch] = useReducer(GeneralReducer, initialState);
@@ -33,6 +28,11 @@ const GeneralState = ({children}) => {
 		const changeTheme = async (theme) => {
 
 			localStorage.setItem('theme', theme);
+			if(localStorage.theme === 'dark' ||  !('theme' in localStorage) || theme === 'dark'){
+				document.documentElement.classList.add('dark')
+			}else{
+				document.documentElement.classList.remove('dark')
+			}
 
 			dispatch({ 
 				type: 'CHANGE_THEME',
@@ -64,6 +64,17 @@ const GeneralState = ({children}) => {
 		// }
     
 		const addToTeam = async (pokemon) => {
+			
+			const localTeam = localStorage.getItem('team')
+
+			if(!JSON.parse(localTeam)){
+				localStorage.setItem('team', JSON.stringify([ pokemon.name ]))
+			}else{
+				const newTeam = [...JSON.parse(localTeam), pokemon.name]
+				localStorage.setItem('team', JSON.stringify(newTeam))
+			}
+
+
 			dispatch({
 				type: 'ADD_POKEMON',
 				payload: pokemon
@@ -72,6 +83,13 @@ const GeneralState = ({children}) => {
 
 		const removeFromTeam = async (name) => {
 			const newTeam = state.team.filter( pokemon => pokemon.name !== name  )
+			const localTeam = JSON.parse(localStorage.getItem('team'))
+
+			
+			if(localTeam){
+				const newLocalTeam = localTeam.filter( pokemonName => pokemonName !== name)
+				localStorage.setItem('team', JSON.stringify(newLocalTeam))
+			}
 			
 			dispatch({
 				type: 'REMOVE_POKEMON',

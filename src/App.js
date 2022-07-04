@@ -14,14 +14,16 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 //context
 import GeneralState from './context/GeneralState';
 import TeamPage from './pages/TeamPage/TeamPage';
+import PassResetPage from './pages/PassResetPage/PassResetPage';
 
 function App() {
 	return (
 		<GeneralState>
 			<BrowserRouter>
-				<Routes>
-					<Route path='/login' element={<AuthPage />} />
-					<Route path='/signup' element={<SignUpPage />} />
+					<Routes>
+						<Route path='/login' element={<AuthPage/>}/>
+						<Route path='/signup' element={<SignUpPage/>}/>
+						<Route path='/resetpass' element={<PassResetPage/>}/>
 
 					<Route element={<Layout />}>
 						<Route index element={<HomePage />} />
