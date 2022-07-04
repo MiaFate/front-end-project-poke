@@ -9,28 +9,30 @@ import SignUpPage from './pages/SignUpPage/SignUpPage'
 import HomePage from './pages/HomePage/HomePage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import Signup from './components/signup/Signup';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 //context
 import GeneralState from './context/GeneralState';
 import TeamPage from './pages/TeamPage/TeamPage';
 
 function App() {
-  return (
+	return (
 		<GeneralState>
 			<BrowserRouter>
-					<Routes>
-						<Route path='/login' element={<AuthPage/>}/>
-						<Route path='/signup' element={<SignUpPage/>}/>
+				<Routes>
+					<Route path='/login' element={<AuthPage />} />
+					<Route path='/signup' element={<SignUpPage />} />
 
-						<Route element={<Layout/>}>
-								<Route index element={<HomePage/>}/>
-								<Route path='/profile' element={<ProfilePage/>}/>
-								<Route path='/team' element={<TeamPage/>}/>
-						</Route>
-					</Routes>
-			</BrowserRouter>    
+					<Route element={<Layout />}>
+						<Route index element={<HomePage />} />
+						<Route path='/profile' element={<ProfilePage />} />
+						<Route path='/team' element={<TeamPage />} />
+					</Route>
+					<Route path='*' element={<NotFoundPage />} />
+				</Routes>
+			</BrowserRouter>
 		</GeneralState>
-  );
+	);
 }
 
 export default App;
