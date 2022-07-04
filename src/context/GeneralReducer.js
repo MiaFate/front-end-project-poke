@@ -1,9 +1,16 @@
-import { GET_POKEMON_LIST, GET_POKEMON, ADD_POKEMON, REMOVE_POKEMON } from "./types";
+import { GET_POKEMON_LIST, GET_POKEMON, ADD_POKEMON, REMOVE_POKEMON, CHANGE_THEME } from "./types";
 
 const GeneralReducer = (state, action) => {
     const {payload, type} = action;
 
     switch(type) {
+        case CHANGE_THEME:
+					
+					return {
+						...state,
+						theme: payload
+					}
+
         case GET_POKEMON_LIST:
 					return {
 						...state,

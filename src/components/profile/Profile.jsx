@@ -12,7 +12,7 @@ const Profile = ({user}) => {
   
   return (
     <>
-      <section  className='max-w-3xl min-h-full flex flex-col mx-auto p-6 md:p-12 rounded-xl shadow-2xl items-center'>
+      <section  className='max-w-3xl min-h-full flex flex-col mx-auto p-6 md:p-12 rounded-xl shadow-2xl items-center dark:text-white'>
         <div  className='w-40 h-40 rounded-full overflow-hidden justify-center'>
           <img src={userData.photo} alt={`${userData.name} profile avatar`} className='w-full h-full object-cover'/>
         </div>
@@ -28,8 +28,8 @@ const Profile = ({user}) => {
         <div className='grid grid-rows-2 grid-flow-col gap-2'>
 				{ team ? 
 				  ( team.map( pokemon => (
-							<div className='border-2 border-gray-700'>
-								<img className="w-full w-20 h-20" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`} alt="pokemon"/>
+							<div className='border-2 border-gray-700 rounded-md'>
+								<img className="w-full h-20 p-2" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`} alt="pokemon"/>
 							</div>)
 						) 
 					) 

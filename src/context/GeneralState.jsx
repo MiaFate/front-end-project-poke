@@ -4,15 +4,41 @@ import axios from "axios";
 import GeneralReducer from "./GeneralReducer";
 
 const GeneralState = ({children}) => {
+		const getTheme = async () => {
+
+			if (localStorage.theme === 'dark' ||  (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+				
+				document.documentElement.classList.add('dark')
+				return 'dark'
+
+			}else{
+
+				document.documentElement.classList.remove('dark')
+				return 'light' // light theme por defecto
+
+			}			
+		}
 
     const initialState = {
 				pokemons: [],
 				selectedPokemon: null,
         team: [],
-				theme: "light"
+				theme: getTheme()
     }
 
     const [state, dispatch] = useReducer(GeneralReducer, initialState);
+
+	
+
+		const changeTheme = async (theme) => {
+
+			localStorage.setItem('theme', theme);
+
+			dispatch({ 
+				type: 'CHANGE_THEME',
+				payload: theme
+			})
+		}
     
     const getPokemonList= async () => {
 			const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=20')
@@ -28,14 +54,14 @@ const GeneralState = ({children}) => {
 			return res.data
 		}
 
-		const getPokemonDetails = async (url) => {
-			const res = await axios.get(url)
+		// const getPokemonDetails = async (url) => {
+		// 	const res = await axios.get(url)
 
-			dispatch({ 
-				type: 'GET_POKEMON',
-				payload: res.data.results
-			})
-		}
+		// 	dispatch({ 
+		// 		type: 'GET_POKEMON',
+		// 		payload: res.data.results
+		// 	})
+		// }
     
 		const addToTeam = async (pokemon) => {
 			dispatch({
@@ -45,7 +71,6 @@ const GeneralState = ({children}) => {
 		}
 
 		const removeFromTeam = async (name) => {
-
 			const newTeam = state.team.filter( pokemon => pokemon.name !== name  )
 			
 			dispatch({
@@ -63,7 +88,8 @@ const GeneralState = ({children}) => {
 				pokemons: state.pokemons,
 				selectedPokemon: state.selectedPokemon,
 				team: state.team, 
-				theme: state.theme  
+				theme: state.theme,
+				changeTheme 
 			}}>
 
 				{children}

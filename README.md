@@ -13,7 +13,7 @@
 | Profile      |   ✅ Pantalla y diseño de perfil usuario (hardcode)  | [iara baya](https://github.com/iarabaya)
 | Team         |   <ul><li> ✅ Pantalla y cards de equipo pokemon </li> <li> ⬜️ Funcionalidades (en progreso) </li></ul> | [iara baya](https://github.com/iarabaya)
 | Contraseña   |   ⬜️ Pantalla y funcionalidad de reinicio de contraseña | 
-| Switch       |   ⬜️ Dark / Light Mode  | 
+| Switch       |   ⬜️ Dark / Light Mode  | [iara baya](https://github.com/iarabaya)
 | Register     |  ✅ Pantalla y estilos  | [nathan](https://github.com/qjonathan999)
 | 404          |  ⬜️ Pantalla y ruta | -
 | Estadisticas |  ⬜️ Tabla de estadisticas pokemon | -
