@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Signup from '../../components/signup/Signup'
 
 const SignUpPage = () => {
@@ -24,7 +25,7 @@ const SignUpPage = () => {
       </main>
 
       <div className='max-w-lg mx-auto text-center mt-12 mb-6'>
-        <p>If you have an account already you can login here! <a href="/login" className='font-bold hover:underline' >Login</a></p>
+        <p>If you have an account already you can login here! <Link to="/login" className='font-bold hover:underline' >Login</Link></p>
       </div>
 
       <footer className='max-w-lg mx-auto flex justify-center'>

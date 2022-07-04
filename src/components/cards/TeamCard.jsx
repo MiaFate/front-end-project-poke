@@ -17,7 +17,6 @@ const TeamCard = ({name}) => {
     }, [team])
 
 		const removePokemon = () => {
-			console.log(pokemon.name)
 			removeFromTeam(pokemon.name)
 		}
 
