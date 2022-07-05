@@ -8,7 +8,6 @@ import AuthPage from './pages/AuthPage/AuthPage';
 import SignUpPage from './pages/SignUpPage/SignUpPage'
 import HomePage from './pages/HomePage/HomePage';
 import ProfilePage from './pages/ProfilePage/ProfilePage';
-import Signup from './components/signup/Signup';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 //context
