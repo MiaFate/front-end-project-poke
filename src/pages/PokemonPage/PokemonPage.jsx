@@ -1,9 +1,41 @@
-import React from 'react'
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { useParams } from 'react-router-dom'
+import usePokemons from '../../hooks/usePokemons';
 
 const PokemonPage = () => {
-	return (
-		<div>PokemonPage</div>
+	const { name } = useParams();
+	const { getPokemon } = usePokemons();
+
+	const [pokemon, setPokemon] = useState();
+
+	const getPokemonData = async () => {
+		const url = `https://pokeapi.co/api/v2/pokemon/${name}/`;
+		const data = await getPokemon(url);
+		console.log(data)
+		setPokemon(data);
+	}
+
+	useEffect(() => {
+		getPokemonData();
+	}, [])
+
+	if(pokemon) return (
+		<div className="w-full flex flex-col items-center content-center place-content-center">
+			<h1 className='text-lg font-bold capitalize'>{name}</h1>
+			<img className="w-full h-40" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`} alt="pokemon"></img>
+			<p className='underline mt-2'>Abilities</p>
+			<ul className="my-3">
+				{pokemon.abilities.map( e => <li key={e.ability.name}>{e.ability.name}</li>)}	
+			</ul>
+			<p className='underline'>Types</p>
+			<ul className="my-3">
+				{pokemon.types.map( e => <li key={e.type.name}>{e.type.name}</li>)}	
+			</ul>
+		</div>
 	)
+
+	return (<h2>Cargando</h2>)
 }
 
 export default PokemonPage

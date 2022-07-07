@@ -29,7 +29,7 @@ function App() {
 					<Route path='/home' element={<HomePage />} />
 					<Route path='/profile' element={<ProfilePage />} />
 					<Route path='/team' element={<TeamPage />} />
-					<Route path='/pokemon/:id' element={<PokemonPage/>}/>
+					<Route path='/pokemon/:name' element={<PokemonPage/>}/>
 				</Route>
 				<Route path='*' element={<NotFoundPage />} />
 			</Routes>

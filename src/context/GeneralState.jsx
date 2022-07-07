@@ -49,14 +49,6 @@ const GeneralState = ({children}) => {
 			const res = await axios.get(url)
 			return res.data
 		}
-
-		const getPokemonDetails = async (url) => {
-			const res = await axios.get(url)
-			dispatch({ 
-				type: 'GET_POKEMON',
-				payload: res.data.results
-			})
-		}
     
 		const addToTeam = async (pokemon) => {
 			const localTeam = localStorage.getItem('team')

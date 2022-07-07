@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import usePokemons from '../../hooks/usePokemons';
 
-const TeamCard = ({name}) => {
+const TeamCard = ({name, setAlert}) => {
 	const { team,  getPokemon, removeFromTeam }= usePokemons()
 	const [pokemon, setPokemon] = useState();
 
@@ -16,6 +16,8 @@ const TeamCard = ({name}) => {
     }, [team])
 
 		const removePokemon = () => {
+			setAlert({ type: 'delete', message: `You've deleted ${name} of your team` })
+			setTimeout(() => setAlert(''), 1000)
 			removeFromTeam(pokemon.name)
 		}
 
