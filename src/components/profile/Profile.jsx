@@ -26,7 +26,7 @@ const Profile = ({ user }) => {
         </div>
 
         <p className='font-bold my-3'>Pokemon team</p>
-        <div className='grid grid-rows-2 grid-flow-col gap-2'>
+        <div className='grid grid-rows-2 grid-cols-3 gap-2'>
           {team ?
             (team.map(pokemon => (
               <div key={pokemon.name} className='border-2 border-gray-700 rounded-md'>
