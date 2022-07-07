@@ -1,14 +1,13 @@
-import React, { useContext, useState, useEffect } from 'react'
-import GeneralContext from '../../context/GeneralContext';
+import React, { useState, useEffect } from 'react'
+import usePokemons from '../../hooks/usePokemons';
 
-const TeamCard = ({name}) => {
-    const [pokemon, setPokemon] = useState();
-		const { team,  getPokemon, removeFromTeam }= useContext(GeneralContext)
+const TeamCard = ({name, setAlert}) => {
+	const { team,  getPokemon, removeFromTeam }= usePokemons()
+	const [pokemon, setPokemon] = useState();
 
     const getPokemonData = async () => {
 				const url = `https://pokeapi.co/api/v2/pokemon/${name}/`;
         const data = await getPokemon(url);
-	
         setPokemon(data);
     };
 
@@ -17,6 +16,8 @@ const TeamCard = ({name}) => {
     }, [team])
 
 		const removePokemon = () => {
+			setAlert({ type: 'delete', message: `You've deleted ${name} of your team` })
+			setTimeout(() => setAlert(''), 1000)
 			removeFromTeam(pokemon.name)
 		}
 

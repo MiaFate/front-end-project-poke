@@ -1,9 +1,9 @@
 import React from 'react';
 import { FaSun, FaMoon} from "react-icons/fa";
-import GeneralContext from '../../context/GeneralContext';
+import useTheme from '../../hooks/useTheme';
 
 const ToggleThemeButton = () => {
-    const { theme, changeTheme } = React.useContext(GeneralContext);
+    const { theme, changeTheme } = useTheme();
 
     return (
         <div className="transition duration-500 ease-in-out rounded-full items-center p-2 m-2 ">

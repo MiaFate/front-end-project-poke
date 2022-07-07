@@ -1,4 +1,4 @@
-# front-end-project
+# front-end-project - Pokedex
 
 ## Progreso en tareas
 > ### Tareas React
@@ -11,12 +11,16 @@
 | Footer       |  ✅ Diseño y funcionalidad  | [nathan](https://github.com/qjonathan999)
 | HomeCard     |  ✅ Card de Pokemon para home  | [nathan](https://github.com/qjonathan999)
 | Profile      |   ✅ Pantalla y diseño de perfil usuario (hardcode)  | [iara baya](https://github.com/iarabaya)
-| Team         |   <ul><li> ✅ Pantalla y cards de equipo pokemon </li> <li> ⬜️ Funcionalidades (en progreso) </li></ul> | [iara baya](https://github.com/iarabaya)
-| Contraseña   |   ⬜️ Pantalla y funcionalidad de reinicio de contraseña | 
-| Switch       |   ⬜️ Dark / Light Mode  | [iara baya](https://github.com/iarabaya)
+| Team         |   <ul><li> ✅ Pantalla y cards de equipo pokemon </li> <li> ✅ Funcionalidades (agregar/sacar) </li></ul> | [iara baya](https://github.com/iarabaya)
+| Contraseña   |  <ul><li>  ✅ Pantalla de reinicio de contraseña </li> <li> ⬜️ Funcionalidades (en progreso) </li></ul> | [iara baya](https://github.com/iarabaya)
+| Switch       |   ✅ Dark / Light Mode  | [iara baya](https://github.com/iarabaya)
 | Register     |  ✅ Pantalla y estilos  | [nathan](https://github.com/qjonathan999)
-| 404          |  ⬜️ Pantalla y ruta | -
-| Estadisticas |  ⬜️ Tabla de estadisticas pokemon | -
+| 404          |  ✅ Pantalla y ruta | [mia ramos](https://github.com/MiaFate)
+| Estadisticas |  ⬜️ Tabla de estadisticas pokemon | [mia ramos](https://github.com/MiaFate)
+
+<br>
+
+
 
 > ### Tareas Firebase
 | Componente  | Estado Tarea | Contribuyente |
@@ -28,15 +32,17 @@
 | Firebase | Integrar con login redes sociales |  |
 | Firestore | Crear documento |  |
 | Firestore | Conectar con base de datos |  |
+
+<br>
+
+
 # homework
 
 * Crear un proyecto de React.
 * Definir un archivo info.md que describa de que se trata el proyecto.  (ejemplos, spotify, netflix, recodatorio de clases, juego... etc..)
 * Definir un componente que sea perfil de usuario... 
 
-
 # homework
-
 * Si pudieron hacer el componente perfil de usuario ahora tienen que hacer el componente Login...
 
 # homework
@@ -56,7 +62,6 @@
 * Usen un evento para que la media card se agrande cuando pase el mouse por arriba.
 
 # homework
-
 * Crear un proyecto y una app en firebase.
 * Configurar la app de React con firebase
 * Van a seleccionar un provider (Google/Microsoft/Facebook/Apple)
@@ -64,14 +69,11 @@
 * Van incorporar el boton del provider. (ver docu de firebase)
 * Van a darle funcionalidad a Create account/reset password para los componentes creados previamente.
 # homework
-
 * Crear un documento en firestore y cargarlo...
 
 # homework
-
 * Crear el social login para Facebook, Twitter y Microsoft.
 # homework
-
 * Conectar el componente movies al backend de firebase con la coleccion movies.
 
 

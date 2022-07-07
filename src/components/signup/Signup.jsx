@@ -48,10 +48,10 @@ const Signup = () => {
           onChange={onInputChange} />
       </div>
 
-      <div class="md:flex md:items-center mb-6">
-        <label class="block text-gray-600 font-bold">
-          <input class="mr-2 leading-tight" type="checkbox" />
-          <span class="text-sm">
+      <div className="md:flex md:items-center mb-6">
+        <label className="block text-gray-600 font-bold">
+          <input className="mr-2 leading-tight" type="checkbox" />
+          <span className="text-sm">
             By creating your account you agree to the terms of service and our security policy.
           </span>
         </label>

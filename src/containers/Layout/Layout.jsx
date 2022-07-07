@@ -8,7 +8,7 @@ const Layout = ({children}) => {
     <>
       <Header/>
       
-      <main className="body-bg min-h-screen bg-white dark:bg-gray-800 transition-all pt-12 md:pt-20 pb-2 px-2">
+      <main className="body-bg min-h-screen bg-white dark:bg-gray-800 transition-all pt-5 md:pt-5 pb-2 px-2">
        <Outlet/>
       </main>
 

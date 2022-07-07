@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react'
-import GeneralContext from '../../context/GeneralContext';
+import React, { useEffect, useState } from 'react'
+import usePokemons from '../../hooks/usePokemons';
 
 const Profile = ({user}) => {
   const [userData, setUserData] = useState({});
 
-	const { team } = useContext(GeneralContext);
+	const { team } = usePokemons();
 
   useEffect(()=>{
     setUserData(user);
-  },[])
+  },[user])
   
   return (
     <>
@@ -28,7 +28,7 @@ const Profile = ({user}) => {
         <div className='grid grid-rows-2 grid-flow-col gap-2'>
 				{ team ? 
 				  ( team.map( pokemon => (
-							<div className='border-2 border-gray-700 rounded-md'>
+							<div key={pokemon.name} className='border-2 border-gray-700 rounded-md'>
 								<img className="w-full h-20 p-2" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`} alt="pokemon"/>
 							</div>)
 						) 
