@@ -2,9 +2,24 @@ import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import { Link } from 'react-router-dom'
 import ToggleThemeButton from "../toggleTheme/toggleTheme";
+import { useNavigate } from "react-router-dom";
+import { signOut, getAuth } from "firebase/auth";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const auth = getAuth()
+    var user = auth.currentUser
+    const navigate = useNavigate()
+    const handleLogout = () => {
+      navigate('/login')
+      signOut(auth)
+  .then(function() {
+    // Sign-out successful.
+  })
+  .catch(function(error) {
+    // An error happened
+  });
+    }
 
   return (
     <div>
@@ -87,12 +102,14 @@ const Header = () => {
                 )}
               </button>
             </div>
-
+            {
+              user ? <button className="text-white dark:text-gray-300 hover:bg-red-600 hover:dark:bg-gray-700 hover:dark:text-white px-3 py-2 rounded-md text-sm font-medium"  onClick={handleLogout}>Logout</button> :
             <div className="items-center hidden md:block">
               <Link to="/login" className="text-white dark:text-gray-300 hover:bg-blue-600 hover:dark:bg-gray-700 hover:dark:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Login
               </Link>
             </div>
+            }
           </div>			
         </div>
 
