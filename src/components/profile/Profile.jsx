@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react'
-import GeneralContext from '../../context/GeneralContext';
+import React, { useEffect, useState } from 'react'
+import usePokemons from '../../hooks/usePokemons';
 
 const Profile = ({user}) => {
   const [userData, setUserData] = useState({});
 
-	const { team } = useContext(GeneralContext);
+	const { team } = usePokemons();
 
   useEffect(()=>{
     setUserData(user);
-  },[])
+  },[user])
   
   return (
     <>

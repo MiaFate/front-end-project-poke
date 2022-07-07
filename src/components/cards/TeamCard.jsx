@@ -1,14 +1,13 @@
-import React, { useContext, useState, useEffect } from 'react'
-import GeneralContext from '../../context/GeneralContext';
+import React, { useState, useEffect } from 'react'
+import usePokemons from '../../hooks/usePokemons';
 
 const TeamCard = ({name}) => {
-    const [pokemon, setPokemon] = useState();
-		const { team,  getPokemon, removeFromTeam }= useContext(GeneralContext)
+	const { team,  getPokemon, removeFromTeam }= usePokemons()
+	const [pokemon, setPokemon] = useState();
 
     const getPokemonData = async () => {
 				const url = `https://pokeapi.co/api/v2/pokemon/${name}/`;
         const data = await getPokemon(url);
-	
         setPokemon(data);
     };
 

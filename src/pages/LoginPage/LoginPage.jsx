@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Login from '../../components/login/Login'
 
-const AuthPage = () => {
+const LoginPage = () => {
   return (
     <>
       <header className='bg-white max-w-lg mx-auto'>
@@ -37,4 +37,4 @@ const AuthPage = () => {
   )
 }
 
-export default AuthPage
+export default LoginPage

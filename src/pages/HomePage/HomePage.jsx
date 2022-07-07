@@ -1,13 +1,8 @@
-import React, { useContext, useEffect } from 'react'
 import HomeCard from '../../components/cards/HomeCard'
-import GeneralContext from '../../context/GeneralContext'
+import usePokemons from '../../hooks/usePokemons'
 
 const HomePage = () => {
-	const { getPokemonList, pokemons } = useContext(GeneralContext)
-
-  useEffect(()=>{
-		getPokemonList();
-  },[])
+	const { pokemons } = usePokemons();
 
   if( pokemons.length > 1){
 		return (

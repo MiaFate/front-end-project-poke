@@ -22,11 +22,11 @@ const Header = () => {
 							
               <div className="hidden md:block">
                 <div className="ml-10 flex items-center space-x-4">
-                  <Link to="/" className="text-white hover:bg-blue-600 hover:dark:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                  <Link to="/home" className="text-white hover:bg-blue-600 hover:dark:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
                     PokéDex
                   </Link>
 
-									<Link to='team' className="text-white dark:text-gray-300 hover:bg-blue-600 hover:dark:bg-gray-700 hover:dark:text-white px-3 py-2 rounded-md text-sm font-medium">
+									<Link to='/team' className="text-white dark:text-gray-300 hover:bg-blue-600 hover:dark:bg-gray-700 hover:dark:text-white px-3 py-2 rounded-md text-sm font-medium">
 										My Team
 									</Link>
 
@@ -109,19 +109,19 @@ const Header = () => {
             <div className="md:hidden" id="mobile-menu">
               <div ref-setter={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
 
-                <Link to="/" className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium">
+                <Link to="/home" className="text-white hover:bg-blue-700 hover:dark:bg-gray-600  block px-3 py-2 rounded-md text-base font-medium">
                   PokéDex
                 </Link>
 
-                <Link to="/team" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+                <Link to="/team" className="text-gray-300 hover:bg-blue-700 hover:dark:bg-gray-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
                     My Team
                 </Link>
 
-                <Link to="/profile" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-m" >
+                <Link to="/profile" className="text-gray-300 hover:bg-blue-700 hover:dark:bg-gray-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium" >
                   My Profile
                 </Link>
 
-                <Link to="/login" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-m" >
+                <Link to="/login" className="text-gray-300 hover:bg-blue-700 hover:dark:bg-gray-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium" >
                   Login
                 </Link>
 

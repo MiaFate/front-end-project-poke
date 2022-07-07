@@ -2,10 +2,10 @@ import React, { useReducer } from "react"
 import GeneralContext from "./GeneralContext";
 import axios from "axios";
 import GeneralReducer from "./GeneralReducer";
+import { useEffect } from "react";
 
 const GeneralState = ({children}) => {
 		// const getTheme = async () => {
-
 		// 	if ( window.matchMedia('(prefers-color-scheme: dark)').matches) {
 		// 		document.documentElement.classList.add('dark')
 		// 		return 'dark'
@@ -23,17 +23,14 @@ const GeneralState = ({children}) => {
 
     const [state, dispatch] = useReducer(GeneralReducer, initialState);
 
-	
-
+		// FUNCTIONS
 		const changeTheme = async (theme) => {
-
 			localStorage.setItem('theme', theme);
 			if(localStorage.theme === 'dark' ||  !('theme' in localStorage) || theme === 'dark'){
 				document.documentElement.classList.add('dark')
 			}else{
 				document.documentElement.classList.remove('dark')
 			}
-
 			dispatch({ 
 				type: 'CHANGE_THEME',
 				payload: theme
@@ -42,7 +39,6 @@ const GeneralState = ({children}) => {
     
     const getPokemonList= async () => {
 			const res = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=20')
-
 			dispatch({ 
 				type: 'GET_POKEMON_LIST',
 				payload: res.data.results
@@ -54,17 +50,15 @@ const GeneralState = ({children}) => {
 			return res.data
 		}
 
-		// const getPokemonDetails = async (url) => {
-		// 	const res = await axios.get(url)
-
-		// 	dispatch({ 
-		// 		type: 'GET_POKEMON',
-		// 		payload: res.data.results
-		// 	})
-		// }
+		const getPokemonDetails = async (url) => {
+			const res = await axios.get(url)
+			dispatch({ 
+				type: 'GET_POKEMON',
+				payload: res.data.results
+			})
+		}
     
 		const addToTeam = async (pokemon) => {
-			
 			const localTeam = localStorage.getItem('team')
 
 			if(!JSON.parse(localTeam)){
@@ -73,7 +67,6 @@ const GeneralState = ({children}) => {
 				const newTeam = [...JSON.parse(localTeam), pokemon.name]
 				localStorage.setItem('team', JSON.stringify(newTeam))
 			}
-
 
 			dispatch({
 				type: 'ADD_POKEMON',
@@ -84,7 +77,6 @@ const GeneralState = ({children}) => {
 		const removeFromTeam = async (name) => {
 			const newTeam = state.team.filter( pokemon => pokemon.name !== name  )
 			const localTeam = JSON.parse(localStorage.getItem('team'))
-
 			
 			if(localTeam){
 				const newLocalTeam = localTeam.filter( pokemonName => pokemonName !== name)
@@ -96,6 +88,10 @@ const GeneralState = ({children}) => {
 				payload: newTeam
 			})
 		}
+
+		useEffect(()=>{
+			getPokemonList();
+		},[])
 
     return (
       <GeneralContext.Provider value={{
