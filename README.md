@@ -16,7 +16,7 @@
 | Switch       |   ✅ Dark / Light Mode  | [iara baya](https://github.com/iarabaya)
 | Register     |  ✅ Pantalla y estilos  | [nathan](https://github.com/qjonathan999)
 | 404          |  ✅ Pantalla y ruta | [mia ramos](https://github.com/MiaFate)
-| Estadisticas |  ⬜️ Tabla de estadisticas pokemon | [mia ramos](https://github.com/MiaFate)
+| Estadisticas |  ✅ Tabla de estadisticas pokemon | [mia ramos](https://github.com/MiaFate)
 
 <br>
 
@@ -25,7 +25,8 @@
 > ### Tareas Firebase
 | Componente  | Estado Tarea | Contribuyente |
 | ------------- | ------------- | ---------------- |
-| Firebase | Configuraciones basicas |  |
+| Firebase | ✅ Configuraciones basicas | [Ivan Rojas](https://github.com/IvanRojas99) |
+| Firebase | ✅ Login con Firebase | [Ivan Rojas](https://github.com/IvanRojas99) |
 | Firebase | Setear Provider |  |
 | Firebase | Crear usuarios con email y pass |  |
 | Firebase | Integrar con registro y reinicio de contraseña |  |
