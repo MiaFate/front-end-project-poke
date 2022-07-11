@@ -5,15 +5,13 @@ import Signup from '../../components/signup/Signup'
 const SignUpPage = () => {
   return (
     <>
-      <header className='bg-white max-w-lg mx-auto'>
-        <a href="/">
+      <header className='bg-white max-w-lg mx-auto mt-5'>
           <h1 className='text-4xl font-bold text-center'>Sign Up</h1>
-        </a>
       </header>
 
       <main className='bg-white max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl'>
 
-        <section>
+        <section className='flex flex-col items-center'>
           <h3 className='font-bold text-2xl'>Create Your PokéDex Account</h3>
           <p className='text-gray-600 pt-2'>Get started and have fun for free</p>
         </section>

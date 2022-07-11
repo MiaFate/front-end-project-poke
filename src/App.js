@@ -15,23 +15,27 @@ import ProfilePage from './pages/ProfilePage/ProfilePage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import TeamPage from './pages/TeamPage/TeamPage';
 import PokemonPage from './pages/PokemonPage/PokemonPage';
+import ProtectedRoutes from './containers/Protected/ProtectedRoute';
 
 function App() {
 	return (	
 		<BrowserRouter>
 				<Routes>
 					<Route path='/' element={<LandingPage/>}/>
-					<Route path='/login' element={<LoginPage/>}/>
 					<Route path='/signup' element={<SignUpPage/>}/>
 					<Route path='/resetpass' element={<PassResetPage/>}/>
 
-				<Route element={<Layout/>}>
-					<Route path='/home' element={<HomePage />} />
-					<Route path='/profile' element={<ProfilePage />} />
-					<Route path='/team' element={<TeamPage />} />
-					<Route path='/pokemon/:name' element={<PokemonPage/>}/>
+				
+				<Route element={<ProtectedRoutes/>}>
+					<Route element={<Layout/>}>
+						<Route path='/home' element={<HomePage />} />
+						<Route path='/profile' element={<ProfilePage />} />
+						<Route path='/team' element={<TeamPage />} />
+						<Route path='/pokemon/:name' element={<PokemonPage/>}/>
+					</Route>
+					<Route path='*' element={<NotFoundPage />} />
 				</Route>
-				<Route path='*' element={<NotFoundPage />} />
+				
 			</Routes>
 		</BrowserRouter>		
 	);
