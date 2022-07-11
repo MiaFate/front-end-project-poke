@@ -1,26 +1,19 @@
-import React, { useEffect, useState } from 'react'
 import usePokemons from '../../hooks/usePokemons';
 import StatisticsTable from '../statisticsTable/StatisticsTable';
 
 const Profile = ({ user }) => {
-  const [userData, setUserData] = useState({});
-
   const { team } = usePokemons();
 
-  useEffect(() => {
-    setUserData(user);
-  }, [user])
 
   return (
     <>
       <section className='max-w-3xl min-h-full flex flex-col mx-auto p-6 md:p-12 rounded-xl shadow-2xl items-center dark:text-white'>
         <div className='w-40 h-40 rounded-full overflow-hidden justify-center'>
-          <img src={userData.photo} alt={`${userData.name} profile avatar`} className='w-full h-full object-cover' />
+          <img src={user.photoURL ? user.photoURL : 'pokeball.svg'} alt={`${user.email} profile avatar`} className='w-full h-full object-cover' />
         </div>
 
         <div className='w-full md:w-4/5 flex flex-col items-center'>
-          <p className='font-bold'>{user.username || 'username'}</p>
-          <p className='font-light text-sm text-gray-500'>{user.name || 'name'}</p>
+          <p className='font-bold'>{user.displayName || user.email}</p>
           <p className='font-light mb-4'>{user.email || 'email@test.com'}</p>
           <p className='text-justify mb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nisi voluptates, laudantium odit, exercitationem rem aperiam, impedit dolorum ab odio deserunt ipsa accusamus ea fugit distinctio vitae dolore et quam.</p>
         </div>

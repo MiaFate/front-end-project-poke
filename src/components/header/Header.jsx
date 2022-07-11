@@ -3,23 +3,24 @@ import { Transition } from "@headlessui/react";
 import { Link } from 'react-router-dom'
 import ToggleThemeButton from "../toggleTheme/toggleTheme";
 import { useNavigate } from "react-router-dom";
-import { signOut, getAuth } from "firebase/auth";
+import { useAuth } from '../../hooks/useAuth';
 
 const Header = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const auth = getAuth()
-    var user = auth.currentUser
-    const navigate = useNavigate()
-    const handleLogout = () => {
-      navigate('/login')
-      signOut(auth)
-  .then(function() {
-    // Sign-out successful.
-  })
-  .catch(function(error) {
-    // An error happened
-  });
-    }
+	const [isOpen, setIsOpen] = useState(false);
+	const navigate = useNavigate()
+	const { user, logout, loading } = useAuth();
+
+	const handleLogout = async () => {
+		try {
+			await logout();
+			// Sign-out successful.
+			navigate('/');
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	if(loading) return <h1>Loading</h1>
 
   return (
     <div>
@@ -102,14 +103,17 @@ const Header = () => {
                 )}
               </button>
             </div>
-            {
-              user ? <button className="text-white dark:text-gray-300 hover:bg-red-600 hover:dark:bg-gray-700 hover:dark:text-white px-3 py-2 rounded-md text-sm font-medium"  onClick={handleLogout}>Logout</button> :
-            <div className="items-center hidden md:block">
-              <Link to="/login" className="text-white dark:text-gray-300 hover:bg-blue-600 hover:dark:bg-gray-700 hover:dark:text-white px-3 py-2 rounded-md text-sm font-medium">
-                Login
+      
+						<div className="items-center hidden md:block text-white" >
+							{user.displayName? user.displayName : user.email}
+						</div>
+
+						<div className="items-center hidden md:block">
+              <Link to="/" className="text-white dark:text-gray-300 hover:bg-red-600 hover:dark:bg-gray-700 hover:dark:text-white px-3 py-2 rounded-md text-sm font-medium" onClick={handleLogout}>
+                Logout
               </Link>
             </div>
-            }
+            
           </div>			
         </div>
 
@@ -138,10 +142,9 @@ const Header = () => {
                   My Profile
                 </Link>
 
-                <Link to="/login" className="text-gray-300 hover:bg-blue-700 hover:dark:bg-gray-600 hover:text-white block px-3 py-2 rounded-md text-base font-medium" >
-                  Login
+                <Link to="/" className="text-white dark:text-gray-300 hover:bg-red-600 hover:dark:bg-gray-700 hover:dark:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={handleLogout}>
+                  Logout
                 </Link>
-
               </div>
             </div>
           )}

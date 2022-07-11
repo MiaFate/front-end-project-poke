@@ -11,9 +11,9 @@ const TeamPage = () => {
 	if (team.length >= 1) {
 		return (
 			<div className='max-w-4xl min-h-full flex flex-col mx-auto mb-4 p-1 md:p-12 rounded-xl shadow-2xl items-center justify-center'>
+				{alert && <Alert type={alert.type} message={alert.message} />}
 				<p className='font-bold my-3 dark:text-white'>Team Statistics</p>
 				<StatisticsTable />
-				{alert && <Alert type={alert.type} message={alert.message} />}
 				<div className='grid gap-4 grid-cols-1 place-content-center md:md:grid-cols-3 xl:grid-cols-3'>
 					{
 						team.map((pokemon, index) => (<TeamCard key={index} name={pokemon.name} setAlert={setAlert} />))
