@@ -27,10 +27,10 @@
 | ------------- | ------------- | ---------------- |
 | Firebase | ✅ Configuraciones basicas | [Ivan Rojas](https://github.com/IvanRojas99) |
 | Firebase | ✅ Login con Firebase | [Ivan Rojas](https://github.com/IvanRojas99) |
-| Firebase | Setear Provider |  |
-| Firebase | Crear usuarios con email y pass |  |
-| Firebase | Integrar con registro y reinicio de contraseña |  |
-| Firebase | Integrar con login redes sociales |  |
+| Firebase | ✅ Setear Provider | [Ivan Rojas](https://github.com/IvanRojas99) |
+| Firebase | ✅ Integrar con registro | [iara baya](https://github.com/iarabaya), [mia ramos](https://github.com/MiaFate) |
+| Firebase | Integrar reinicio de contraseña |  |
+| Firebase | ✅ Integrar con login Google | [iara baya](https://github.com/iarabaya), [mia ramos](https://github.com/MiaFate) |
 | Firestore | Crear documento |  |
 | Firestore | Conectar con base de datos |  |
 
