@@ -1,32 +1,37 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
+import Alert from '../alert/Alert';
 
 const Signup = () => {
-  const [signUpData, setsignUpData] = useState({ username: '', email: '', password: '' });
+  const [user, setUser] = useState({ email: '', password: '' });
+	const [error, setError] = useState()
+	const { signup } = useAuth()
+	const navigate = useNavigate()
 
 
   const onInputChange = (e) => {
     const { name, value } = e.target
 
-    setsignUpData((prev) => ({ ...prev, [name]: value }))
-    console.log(signUpData)
+    setUser((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(signUpData)
+		setError('');
+		try {
+			await signup(user.email, user.password);
+			navigate("/")
+		} catch (error) {
+			console.log(error.code)
+			setError(error.message)
+		}
   }
 
   return (
     <form onSubmit={handleSubmit} className='flex flex-col'>
-      <div className='mb-6 pt-3 rounded bg-gray-200'>
-        <label className='block text-gray-700 text-sm font-bold mb-2 ml-3'> Username </label>
-        <input
-          className='bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-600 transition duration-500 px-3 pb-3'
-          type="text"
-          name="username"
-          value={signUpData.username}
-          onChange={onInputChange} />
-      </div>
+
+			{error && <Alert type="error" message={error}/>}
 
       <div className='mb-6 pt-3 rounded bg-gray-200'>
         <label className='block text-gray-700 text-sm font-bold mb-2 ml-3'> Email </label>
@@ -34,7 +39,7 @@ const Signup = () => {
           className='bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-600 transition duration-500 px-3 pb-3'
           type="email"
           name="email"
-          value={signUpData.email}
+          value={user.email}
           onChange={onInputChange} />
       </div>
 
@@ -44,7 +49,7 @@ const Signup = () => {
           className='bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-600 transition duration-500 px-3 pb-3'
           type="password"
           name="password"
-          value={signUpData.password}
+          value={user.password}
           onChange={onInputChange} />
       </div>
 
@@ -58,7 +63,7 @@ const Signup = () => {
       </div>
 
       <button type="submit" className='bg-gray-900 rounded hover:bg-gray-700 text-white font-bold py-2 shadow-lg hover:shadow-xl transition duration-200 '>
-        Signup
+        Register
       </button>
     </form>
   )

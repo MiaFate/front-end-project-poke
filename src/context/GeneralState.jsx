@@ -75,6 +75,18 @@ const GeneralState = ({children}) => {
 			})
 		}
 
+		const getTeamFromStorage = async () => {
+			const storageTeam = localStorage.getItem('team');
+			if(storageTeam){
+				const team = JSON.parse(storageTeam);
+
+				dispatch({
+					type: 'ADD_TEAM',
+					payload: team
+				})
+			}
+		}
+
 		const getPokemon = async (url) => {
 			const res = await axios.get(url)
 			return res.data
@@ -84,9 +96,9 @@ const GeneralState = ({children}) => {
 			const localTeam = localStorage.getItem('team')
 
 			if(!JSON.parse(localTeam)){
-				localStorage.setItem('team', JSON.stringify([ pokemon.name ]))
+				localStorage.setItem('team', JSON.stringify([ pokemon ]))
 			}else{
-				const newTeam = [...JSON.parse(localTeam), pokemon.name]
+				const newTeam = [...JSON.parse(localTeam), pokemon]
 				localStorage.setItem('team', JSON.stringify(newTeam))
 			}
 
@@ -97,13 +109,8 @@ const GeneralState = ({children}) => {
 		}
 
 		const removeFromTeam = async (name) => {
-			const newTeam = state.team.filter( pokemon => pokemon.name !== name  )
-			const localTeam = JSON.parse(localStorage.getItem('team'))
-			
-			if(localTeam){
-				const newLocalTeam = localTeam.filter( pokemonName => pokemonName !== name)
-				localStorage.setItem('team', JSON.stringify(newLocalTeam))
-			}
+			const newTeam = state.team.filter( pokemon => pokemon.name !== name  )		
+			localStorage.setItem('team', JSON.stringify(newTeam))
 			
 			dispatch({
 				type: 'REMOVE_POKEMON',
@@ -113,6 +120,7 @@ const GeneralState = ({children}) => {
 
 		useEffect(()=>{
 			getPokemonList();
+			getTeamFromStorage();
 
 			const unsubscribe = onAuthStateChanged(auth, currentUser => {
 				setUser(currentUser);
@@ -124,7 +132,6 @@ const GeneralState = ({children}) => {
 
     return (
       <GeneralContext.Provider value={{
-				getPokemonList, 
 				getPokemon, 
 				addToTeam,
 				removeFromTeam,

@@ -3,7 +3,7 @@ import usePokemons from '../../hooks/usePokemons';
 import { useNavigate } from "react-router-dom";
 
 const HomeCard = ({ name, setAlert }) => {
-	const { getPokemon, addToTeam, team} = usePokemons();
+	const { getPokemon, addToTeam, removeFromTeam, team} = usePokemons();
 	const [pokemon, setPokemon] = useState();
 	const [isInTeam, setIsInTeam ] = useState(false);
 	let navigate = useNavigate();
@@ -26,7 +26,7 @@ const HomeCard = ({ name, setAlert }) => {
 	useEffect(()=>{
 		getPokemonData();
 		checkTeam();
-	},[])
+	},[team])
 
 	const addPokemon = (pokemon) => {
 		if(isInTeam) {
@@ -46,10 +46,15 @@ const HomeCard = ({ name, setAlert }) => {
 		}
 	}
 
+	const removePokemon = () => {
+		setAlert({ type: 'delete', message: `You've deleted ${name} from your team.` })
+		setTimeout(() => setAlert(''), 2000)
+		removeFromTeam(pokemon.name)
+	}
+
 	const seeDetails = () => {
 		navigate(`/pokemon/${name}`)
 	}
-	
 
 	if (pokemon) {
 		return (
@@ -73,10 +78,16 @@ const HomeCard = ({ name, setAlert }) => {
 						
 					</div>
 
-
-					<button onClick={() => addPokemon(pokemon)} className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded active:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-300">
-							Add to my team
-					</button>
+					{ 
+						isInTeam ? 			
+						<button onClick={() => removePokemon() } className="bg-red-500 hover:bg-red-700 text-white font-bold my-2 py-2 px-4 rounded">
+							Remove from team
+						</button>
+						:	
+						<button onClick={() => addPokemon(pokemon)} className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded active:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-300">
+								Add to my team
+						</button>
+					}
 
 			</div>)
 	} else {
