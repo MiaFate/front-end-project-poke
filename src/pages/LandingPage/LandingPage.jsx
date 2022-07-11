@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import LoginPage from '../LoginPage/LoginPage'
 
 const LandingPage = () => {

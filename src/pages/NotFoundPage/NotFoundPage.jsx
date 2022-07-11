@@ -2,7 +2,7 @@ import React from 'react'
 
 const NotFoundPage = () => {
     return (
-        <main class="h-screen w-full flex flex-col justify-center items-center ">
+        <main className="h-screen w-full flex flex-col justify-center items-center ">
             <div className='flex flex-row items-center justify-center self-center'>
                 <span className='text-4x4 font-bold'>404</span>
                 <span>|</span>

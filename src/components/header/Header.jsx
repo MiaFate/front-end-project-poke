@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import ToggleThemeButton from "../toggleTheme/toggleTheme";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from '../../hooks/useAuth';
+import Loading from "../loading/Loading";
 
 const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +21,7 @@ const Header = () => {
 		}
 	}
 
-	if(loading) return <h1>Loading</h1>
+	if(loading) return <Loading/>
 
   return (
     <div>
