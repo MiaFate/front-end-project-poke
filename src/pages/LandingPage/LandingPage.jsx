@@ -1,15 +1,20 @@
 import { Link } from 'react-router-dom'
+import LoginPage from '../LoginPage/LoginPage'
 
 const LandingPage = () => {
 	return (
-		<div>
-			in construction ....
-			<h1 className='font-bold'>LandingPage</h1>
-			<Link to='/home'>
-				<button type='button'  className="bg-red-500 hover:bg-red-700 text-white font-bold my-2 py-2 px-4 rounded">
-						Go Home!
-				</button>
-			</Link>
+		<div className='max-w-6xl min-h-full flex flex-row mx-auto mb-2 p-1 md:p-12 rounded-xl shadow-2xl items-center justify-around'>
+			<div>
+					<img
+						className="h-80 w-80"
+						src='Pokemon.svg'
+						alt="pokemon main"
+					/>
+			</div>
+			<div>
+				<LoginPage/>
+			</div>
+
 		</div>
 	)
 }
