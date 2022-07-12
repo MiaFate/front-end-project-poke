@@ -30,7 +30,7 @@ function App() {
 
 				<Route element={<ProtectedRoutes />}>
 					<Route element={<Layout />}>
-						<Route path='/home' element={<HomePage />} />
+						<Route path='/home' element={<Suspense fallback={<Loading />}><HomePage /></Suspense>} />
 						<Route path='/profile' element={<ProfilePage />} />
 						<Route path='/team' element={<TeamPage />} />
 						<Route path='/pokemon/:name' element={<PokemonPage />} />
