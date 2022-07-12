@@ -38,7 +38,10 @@ const Login = () => {
 	
 	const handleGoogleSignIn = async () => {
 		try {
-			await loginWithGoogle()
+			const userCredentials= await loginWithGoogle();
+			const { user } = userCredentials;
+			localStorage.setItem('user', JSON.stringify(user));
+			
 			navigate("/home")
 		} catch (error) {
 			setError(error.message);

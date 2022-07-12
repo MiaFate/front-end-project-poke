@@ -4,12 +4,11 @@ import { Link } from 'react-router-dom'
 import ToggleThemeButton from "../toggleTheme/toggleTheme";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from '../../hooks/useAuth';
-import Loading from "../loading/Loading";
 
 const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const navigate = useNavigate()
-	const { user, logout, loading } = useAuth();
+	const { user, logout } = useAuth();
 
 	const handleLogout = async () => {
 		try {
@@ -21,7 +20,6 @@ const Header = () => {
 		}
 	}
 
-	if(loading) return <Loading/>
 
   return (
     <div>
