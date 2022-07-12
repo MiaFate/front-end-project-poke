@@ -1,17 +1,18 @@
 import './App.css';
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 //container con nav y footer
 import Layout from './containers/Layout/Layout';
 
 //protected pages
 import ProfilePage from './pages/ProfilePage/ProfilePage';
 import TeamPage from './pages/TeamPage/TeamPage';
-import PokemonPage from './pages/PokemonPage/PokemonPage';
 import ProtectedRoutes from './containers/Protected/ProtectedRoute';
 import Loading from './components/loading/Loading';
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
+const PokemonPage = lazy(() => import('./pages/PokemonPage/PokemonPage'));
+// import PokemonPage from './pages/PokemonPage/PokemonPage';
 
 //public pages
 const LandingPage = lazy(() => import('./pages/LandingPage/LandingPage'));
@@ -23,17 +24,18 @@ function App() {
 		<BrowserRouter>
 			<Routes>
 
-				<Route path='*' element={<NotFoundPage />} />
+				<Route path="/notfound" element={<NotFoundPage/>} />
+				<Route path="*" element={<Navigate replace to="/notfound" />} />
 				<Route path='/' element={<Suspense fallback={<Loading />}><LandingPage /></Suspense>} />
 				<Route path='/signup' element={<Suspense fallback={<Loading />}><SignUpPage /></Suspense>} />
 				<Route path='/resetpass' element={<Suspense fallback={<Loading />}><PassResetPage /></Suspense>} />
 
 				<Route element={<ProtectedRoutes />}>
 					<Route element={<Layout />}>
-						<Route path='/home' element={<Suspense fallback={<Loading />}><HomePage /></Suspense>} />
-						<Route path='/profile' element={<ProfilePage />} />
-						<Route path='/team' element={<TeamPage />} />
-						<Route path='/pokemon/:name' element={<PokemonPage />} />
+						<Route path='home' element={<Suspense fallback={<Loading />}><HomePage /></Suspense>} />
+						<Route path='profile' element={<ProfilePage />} />
+						<Route path='team' element={<TeamPage />} />
+						<Route path='pokemon/:name' element={<Suspense fallback={<Loading />}><PokemonPage /></Suspense>} />
 					</Route>
 				</Route>
 
