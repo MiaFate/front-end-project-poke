@@ -92,9 +92,7 @@ const HomeCard = ({ name, setAlert }) => {
 					}
 
 			</div>)
-	} else {
-		return (<p>Cargando...</p>)
-	}
+	} 
 
 }
 
