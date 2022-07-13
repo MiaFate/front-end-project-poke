@@ -22,8 +22,7 @@ const Header = () => {
 
 
   return (
-    <div>
-      <nav className="bg-blue-500 dark:bg-gray-900">
+      <nav className="bg-blue-500 dark:bg-gray-900 sticky top-0">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -108,7 +107,7 @@ const Header = () => {
 						</div>
 
 						<div className="items-center hidden md:block">
-              <Link to="/" className="text-white dark:text-gray-300 hover:bg-red-600 hover:dark:bg-gray-700 hover:dark:text-white px-3 py-2 rounded-md text-sm font-medium" onClick={handleLogout}>
+              <Link to="/" className="text-white dark:text-gray-300 hover:bg-red-600 hover:dark:bg-red-800 hover:dark:text-white px-3 py-2 rounded-md text-sm font-medium" onClick={handleLogout}>
                 Logout
               </Link>
             </div>
@@ -141,7 +140,7 @@ const Header = () => {
                   My Profile
                 </Link>
 
-                <Link to="/" className="text-white dark:text-gray-300 hover:bg-red-600 hover:dark:bg-gray-700 hover:dark:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={handleLogout}>
+                <Link to="/" className="text-white dark:text-gray-300 hover:bg-red-600 hover:dark:bg-red-800 hover:dark:text-white block px-3 py-2 rounded-md text-base font-medium" onClick={handleLogout}>
                   Logout
                 </Link>
               </div>
@@ -149,7 +148,6 @@ const Header = () => {
           )}
         </Transition>
       </nav>
-    </div>
   )
 }
 export default Header
