@@ -6,6 +6,7 @@ const HomeCard = ({ name, setAlert }) => {
 	const { getPokemon, addToTeam, removeFromTeam, team} = usePokemons();
 	const [pokemon, setPokemon] = useState();
 	const [isInTeam, setIsInTeam ] = useState(false);
+	const [isImageLoaded, setIsImageLoaded] = useState(false);
 	let navigate = useNavigate();
 
 	const getPokemonData = async () => {
@@ -60,8 +61,8 @@ const HomeCard = ({ name, setAlert }) => {
 		return (
 
 			<div className='shadow hover:shadow-2xl max-w-sm w-full rounded overflow-hidden flex flex-col justify-center items-center m-2 px-0.5 py-2 border border-gray-300'>
-
-					<img className="w-full h-72" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`} alt="pokemon"></img>
+					{!isImageLoaded&&<div className='w-full h-72 bg-neutral-200 animate-pulse'></div>}
+					<img className={`w-full h-72 ${isImageLoaded ? "block" : "hidden"}`} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`} alt="pokemon" onLoad={()=>setTimeout(()=>setIsImageLoaded(true),1000)}></img>
 					<div className="px-6 py-4 text-center">
 							<div className="font-bold text-xl mb-2 dark:text-white">{pokemon.name}</div>
 					</div>
@@ -82,7 +83,7 @@ const HomeCard = ({ name, setAlert }) => {
 
 					{ 
 						isInTeam ? 			
-						<button onClick={() => removePokemon() } className="bg-red-500 hover:bg-red-700 text-white font-bold my-2 py-2 px-4 rounded">
+						<button onClick={() => removePokemon() } className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
 							Remove from team
 						</button>
 						:	
