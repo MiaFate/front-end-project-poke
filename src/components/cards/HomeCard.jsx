@@ -61,7 +61,7 @@ const HomeCard = ({ name, setAlert }) => {
 		return (
 
 			<div className='shadow hover:shadow-2xl max-w-sm w-full rounded overflow-hidden flex flex-col justify-center items-center m-2 px-0.5 py-2 border border-gray-300'>
-					{!isImageLoaded&&<div className='w-full h-72 bg-neutral-200 animate-pulse'></div>}
+					{!isImageLoaded&&<div className='w-full h-72 bg-neutral-200 dark:bg-neutral-600 animate-skeleton-pulse'></div>}
 					<img className={`w-full h-72 ${isImageLoaded ? "block" : "hidden"}`} src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`} alt="pokemon" onLoad={()=>setTimeout(()=>setIsImageLoaded(true),1000)}></img>
 					<div className="px-6 py-4 text-center">
 							<div className="font-bold text-xl mb-2 dark:text-white">{pokemon.name}</div>
@@ -74,7 +74,7 @@ const HomeCard = ({ name, setAlert }) => {
 						</button>
 
 						{
-							isInTeam && <div className='h-full mx-2 '>
+							isInTeam && <div className='h-full mx-2 animate-bounce rounded-full bg-red-400'>
 														<img className="h-7 w-7" src='https://www.svgrepo.com/show/276264/pokeball-pokemon.svg' alt="pokeball"/>
 													</div>
 						}
