@@ -37,15 +37,15 @@ const Header = () => {
 							
               <div className="hidden md:block">
                 <div className="ml-10 flex items-center space-x-4">
-                  <Link to="/home" className="text-white hover:bg-blue-600 hover:dark:bg-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                  <Link to="/home" className="text-white hover:bg-blue-600 hover:dark:bg-gray-700 focus:ring focus:ring-rose-400 focus:dark:ring-violet-300 px-3 py-2 rounded-md text-sm font-medium">
                     PokéDex
                   </Link>
 
-									<Link to='/team' className="text-white dark:text-gray-300 hover:bg-blue-600 hover:dark:bg-gray-700 hover:dark:text-white px-3 py-2 rounded-md text-sm font-medium">
+									<Link to='/team' className="text-white dark:text-gray-300 hover:bg-blue-600 hover:dark:bg-gray-700 hover:dark:text-white focus:ring focus:ring-rose-400 focus:dark:ring-violet-300 px-3 py-2 rounded-md text-sm font-medium">
 										My Team
 									</Link>
 
-                  <Link to="/profile" className="text-white dark:text-gray-300 hover:bg-blue-600 hover:dark:bg-gray-700 hover:dark:text-white px-3 py-2 rounded-md text-sm font-medium">
+                  <Link to="/profile" className="text-white dark:text-gray-300 hover:bg-blue-600 hover:dark:bg-gray-700 hover:dark:text-white focus:ring focus:ring-rose-400 focus:dark:ring-violet-300 px-3 py-2 rounded-md text-sm font-medium">
                     My Profile
                   </Link>
 
