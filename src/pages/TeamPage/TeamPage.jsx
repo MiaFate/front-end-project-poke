@@ -24,7 +24,7 @@ const TeamPage = () => {
 	} else {
 
 		return (
-			<div className='max-w-3xl min-h-full flex flex-col dark:text-white mx-auto p-6 md:p-12 rounded-xl shadow-2xl items-center'>
+			<div className='max-w-3xl min-h-full flex flex-col font-bold dark:text-white mx-auto p-6 md:p-12 rounded-xl shadow-2xl items-center'>
 				No hay pokemones en tu equipo
 			</div>
 		)
