@@ -19,13 +19,6 @@ const HomePage = () => {
       </div>
 		</>
     )
-  }else{ 
-    return (
-      <>
-        <h3>Pokedex</h3>
-        <p>Cargando Pokemones....</p>
-      </>
-    )
   }
 }
 

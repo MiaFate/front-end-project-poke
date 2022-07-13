@@ -41,8 +41,6 @@ const TeamCard = ({name, setAlert}) => {
                     Remove from team
                 </button>
             </div>)
-    }else {
-        return(<p>Cargando...</p>)
     }
 
 }

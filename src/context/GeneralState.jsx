@@ -73,6 +73,17 @@ const GeneralState = ({ children }) => {
 	}
 
 	// THEME FUNCTIONS
+	const getTheme = async () => {
+		const themeStorage = await localStorage.getItem('theme');
+		if (themeStorage) {
+			themeStorage==='dark' ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark')
+			dispatch({
+				type: 'SET_THEME',
+				payload: themeStorage
+			})
+		}
+	}
+
 	const changeTheme = async (theme) => {
 		localStorage.setItem('theme', theme);
 		if (localStorage.theme === 'dark' || !('theme' in localStorage) || theme === 'dark') {
@@ -142,6 +153,7 @@ const GeneralState = ({ children }) => {
 		getUser();
 		getPokemonList();
 		getTeamFromStorage();
+		getTheme();
 
 		const unsubscribe = onAuthStateChanged(auth, currentUser => {
 			setUser(currentUser);

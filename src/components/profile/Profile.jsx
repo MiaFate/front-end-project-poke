@@ -3,24 +3,24 @@ import StatisticsTable from '../statisticsTable/StatisticsTable';
 
 const Profile = ({ user }) => {
   const { team } = usePokemons();
-  const {photoURL} = user;
+  const {photoURL, email, displayName} = user;
 
 
   return (
     <>
       <section className='max-w-3xl min-h-full flex flex-col mx-auto p-6 md:p-12 rounded-xl shadow-2xl items-center dark:text-white'>
         <div className='w-40 h-40 rounded-full overflow-hidden justify-center'>
-          <img src={photoURL ? photoURL : "pokeball.svg"} alt={`${user.email} profile avatar`} className='w-full h-full object-cover' referrerpolicy="no-referrer" />
+          <img src={photoURL ? photoURL : "pokeball.svg"} alt={`${email} profile avatar`} className='w-full h-full object-cover' referrerpolicy="no-referrer" />
         </div>
 
         <div className='w-full md:w-4/5 flex flex-col items-center'>
-          <p className='font-bold'>{user.displayName || user.email}</p>
-          <p className='font-light mb-4'>{user.email || 'email@test.com'}</p>
+          <p className='font-bold'>{displayName || email}</p>
+          <p className='font-light mb-4'>{email}</p>
           <p className='text-justify mb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nisi voluptates, laudantium odit, exercitationem rem aperiam, impedit dolorum ab odio deserunt ipsa accusamus ea fugit distinctio vitae dolore et quam.</p>
         </div>
 
         <p className='font-bold my-3'>Pokemon team</p>
-        <div className='grid grid-rows-2 grid-cols-3 gap-2'>
+        <div className='grid grid-cols-3 gap-2'>
           {team ?
             (team.map(pokemon => (
               <div key={pokemon.name} className='border-2 border-gray-700 rounded-md'>
