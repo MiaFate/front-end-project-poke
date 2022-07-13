@@ -4,7 +4,7 @@
 > ### Tareas React
 | Componente  | Estado Tarea | Contribuyente |
 | ------------- | ------------- | ---------------- |
-| Login        |  <ul><li> ✅ Pantalla y estilos</li> <li> ⬜️ Funcionalidades</li></ul> |  [iara baya](https://github.com/iarabaya) 
+| Login        |  <ul><li> ✅ Pantalla y estilos</li> <li> ✅ Funcionalidades</li></ul> |  [iara baya](https://github.com/iarabaya) 
 | Context      |  ✅ Estado General configurado en Contexto  | [iara baya](https://github.com/iarabaya) 
 | Navbar       |  ✅ Estilo y responsivo  | [iara baya](https://github.com/iarabaya) 
 | Routing      |  ✅ Creacion de rutas | [iara baya](https://github.com/iarabaya) 
