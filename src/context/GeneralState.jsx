@@ -14,7 +14,7 @@ import {
 	getAuth
 } from 'firebase/auth';
 
-import app from "../components/firebase/Firebase";
+import {app} from "../components/firebase/Firebase";
 
 const initialState = {
 	user: null,
